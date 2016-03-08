@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name financeAppApp.controller:MainCtrl
+ * @name financeApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the financeAppApp
+ * Controller of the financeApp
  */
-angular.module('financeAppApp')
+angular.module('financeApp')
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

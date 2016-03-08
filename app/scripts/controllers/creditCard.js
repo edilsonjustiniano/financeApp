@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name financeApp.controller:AboutCtrl
+ * @name financeApp.controller:CreditcardlistctrlCtrl
  * @description
- * # AboutCtrl
+ * # CreditcardlistctrlCtrl
  * Controller of the financeApp
  */
 angular.module('financeApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('CreditCardCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

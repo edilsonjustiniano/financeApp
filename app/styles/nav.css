@@ -1,0 +1,15 @@
+span.menuButton {
+    margin-right: 20px;
+}
+span.menuButton:first {
+    margin-right: 100px;
+}
+
+span.menuButton > i {
+    margin-left: calc(50% - 12px);
+}
+span > i + label {
+    display: block;
+    text-align: center;
+    font-size: 15px;
+}
