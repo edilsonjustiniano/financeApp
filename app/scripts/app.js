@@ -15,5 +15,7 @@ angular
     'ngResource',
     'ngSanitize',
     'ngMaterial',
-    'ui.router'
+    'ui.router',
+    'md.data.table',
+    'financeApp.directives'
 ]);

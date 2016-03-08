@@ -1,0 +1,9 @@
+.container {
+    margin: 20px auto;
+    padding: 0 auto;
+}
+
+.mainTable {
+    width: 100% !important;
+    overflow-x: none !important;
+}

@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('financeApp')
 .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
@@ -12,9 +14,6 @@ angular.module('financeApp')
     .state('creditCardsList', {
         url: '/creditCards',
         views: {
-            'navigator': {
-                templateUrl: 'views/nav.html'
-            },
             'main@': {
                 templateUrl:'views/creditCards/creditCardList.html',
                 controller: 'CreditCardListCtrl'
@@ -24,9 +23,6 @@ angular.module('financeApp')
     .state('creditCardsList.add', {
         url: '/add',
         views: {
-            'navigator': {
-                templateUrl: 'views/nav.html'
-            },
             'main@': {
                 templateUrl: 'views/creditCards/creditCard.html',
                 controller: 'CreditCardCtrl'
@@ -36,9 +32,6 @@ angular.module('financeApp')
     .state('creditCardUpdate', {
         url: '/creditCard/edit',
         views: {
-            'navigator': {
-                templateUrl: '../../nav.html'
-            },
             'main@': {
                 templateUrl: '../../views/creditCards/creditCard.html',
                 controller: 'CreditCardController'

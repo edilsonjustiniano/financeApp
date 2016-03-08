@@ -1,14 +1,13 @@
-span.menuButton {
+.menuButton {
     margin-right: 20px;
+    line-height: 15px !important;
 }
-span.menuButton:first {
+.menuButton:first {
     margin-right: 100px;
 }
-
-span.menuButton > i {
-    margin-left: calc(50% - 12px);
+.menuButton > i {
 }
-span > i + label {
+.menuButton > span {
     display: block;
     text-align: center;
     font-size: 15px;
