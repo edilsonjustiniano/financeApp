@@ -27,22 +27,27 @@ angular.module('financeApp')
                 templateUrl: 'views/creditCards/creditCard.html',
                 controller: 'CreditCardCtrl'
             }
+        },
+        resolve : {
+            card: function() {
+                return undefined;
+            }
         }
     })
-    .state('creditCardUpdate', {
-        url: '/creditCard/edit',
+    .state('creditCardsList.edit', {
+        url: '/edit',
         views: {
             'main@': {
-                templateUrl: '../../views/creditCards/creditCard.html',
-                controller: 'CreditCardController'
+                templateUrl: 'views/creditCards/creditCard.html',
+                controller: 'CreditCardCtrl'
             }
         },
         params: {
-            creditCard: null
+            card: null
         },
         resolve : {
-            creditCard: ['CreditCardService', '$stateParams', function(CreditCardService, $stateParams) {
-                return CreditCardService.get($stateParams.creditCard._id);
+            card: ['CreditCardModel', '$stateParams', function(CreditCardModel, $stateParams) {
+                return CreditCardModel.get({id: $stateParams.card._id});
             }]
         }
     });

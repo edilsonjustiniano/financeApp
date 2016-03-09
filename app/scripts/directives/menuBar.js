@@ -11,12 +11,12 @@ angular.module('financeApp.directives')
                 appTitle: 'Finance App',
                 buttons: [
                     {
-                        state: 'creditCardsList.add',
+                        state: 'creditCardsList',
                         icon: 'credit_card',
                         text: 'Credit Card'
                     },
                     {
-                        state: 'paymentsList.add',
+                        state: 'paymentsList',
                         icon: 'receipt',
                         text: 'Payments'
                     }

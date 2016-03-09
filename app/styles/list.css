@@ -1,9 +1,7 @@
-.container {
-    margin: 20px auto;
-    padding: 0 auto;
+#content {
+    margin: 10px 10px;
 }
 
-.mainTable {
-    width: 100% !important;
-    overflow-x: none !important;
+.actionButtons {
+    cursor: pointer;
 }

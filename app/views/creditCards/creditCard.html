@@ -1,1 +1,40 @@
-Novo Credit Card
+<div flex>
+
+    <form ng-submit="">
+        <md-input-container class="md-icon-float md-block">
+            <!-- Use floating label instead of placeholder -->
+            <label>Bank</label>
+            <md-icon md-svg-src="images/icons/bank.svg" class="bank"></md-icon>
+            <input ng-model="creditCard.bank" type="text">
+        </md-input-container>
+        <md-input-container md-no-float class="md-block">
+            <label>Flag</label>
+            <md-icon md-svg-src="images/icons/label.svg" class="flag"></md-icon>
+            <input ng-model="creditCard.flag" type="text">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Credit Card Number</label>
+            <md-icon md-svg-src="images/icons/credit_card.svg" class="email"></md-icon>
+            <input ng-model="creditCard.number" type="text">
+        </md-input-container>
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Pay Day</label>
+                <md-icon md-svg-src="images/icons/calendar.svg"></md-icon>
+                <input ng-model="creditCard.payDay" type="number" step="1" min="1" max="31">
+            </md-input-container>
+            <div flex="5" hide-xs hide-sm>
+                <!-- Spacer //-->
+            </div>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Close Day</label>
+                <md-icon md-svg-src="images/icons/calendar.svg"></md-icon>
+                <input ng-model="creditCard.closeDay" type="number" step="1" min="1" max="31">
+            </md-input-container>
+        </div>
+        <div id="formPanelButtons">
+            <md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
+            <md-button class="md-raised" ng-click="cancel()">Cancel</md-button>
+        </div>
+    </form>
+</div>

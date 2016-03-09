@@ -1,36 +1,52 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name financeApp.controller:CreditcardlistctrlCtrl
- * @description
- * # CreditcardlistctrlCtrl
- * Controller of the financeApp
- */
+* @ngdoc function
+* @name financeApp.controller:CreditcardlistctrlCtrl
+* @description
+* # CreditcardlistctrlCtrl
+* Controller of the financeApp
+*/
 angular.module('financeApp')
-  .controller('CreditCardListCtrl', function ($scope) {
-    $scope.cards = [{
-        name: 'Itau',
-        flag: 'Master Card',
-        paymentDay: 10,
-        closingDay: 1,
-        number: 'testettasd 2dfs4114f8 1sd'
-    }, {
-        name: 'Nubank',
-        flag: 'Master Card',
-        paymentDay: 10,
-        closingDay: 1,
-        number: 'testettasd 2dfs4114f8 1sd'
-    }, {
-        name: 'BB',
-        flag: 'Master Card',
-        paymentDay: 10,
-        closingDay: 1,
-        number: 'testettasd 2dfs4114f8 1sd'
-    }];
+.controller('CreditCardListCtrl',
+['$scope', '$state', '$mdToast', 'CreditCardModel', function ($scope, $state, $mdToast, CreditCardModel) {
 
     $scope.query = {
-        limit: 10,
-        page: 0
+        order: 'bank',
+        limit: 5,
+        page: 1
     };
-  });
+
+    $scope.listCreditCards = function() {
+        CreditCardModel.query(function(creditCards) {
+            $scope.cards = creditCards;
+        });
+    };
+
+    $scope.edit = function(card) {
+        $state.go('creditCardsList.edit', {card: card});
+    };
+
+    $scope.delete = function(card) {
+        card.$delete($scope.successDeleteCard, $scope.errorToDeleteCard);
+    };
+
+    $scope.successDeleteCard = function() {
+        $mdToast.show(
+            $mdToast.simple()
+            .textContent('Credit Card successfuly deleted!')
+            .position('bottom right')
+        );
+        $scope.listCreditCards();
+    };
+
+    $scope.errorToDeleteCard = function() {
+        $mdToast.show(
+            $mdToast.simple()
+            .textContent('Error to delete card!')
+            .position('bottom right')
+        );
+    };
+
+    $scope.listCreditCards();
+}]);

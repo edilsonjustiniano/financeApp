@@ -1,6 +1,6 @@
 <!doctype html>
 <html class="no-js">
-  <head>
+<head>
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
@@ -16,18 +16,19 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/nav.css">
     <link rel="stylesheet" href="styles/list.css">
+    <link rel="stylesheet" href="styles/form.css">
     <link rel="stylesheet" href="styles/angular-icon.css">
     <!-- endbuild -->
-  </head>
-  <body ng-app="financeApp">
+</head>
+<body ng-app="financeApp" layout="column">
     <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <menu-bar></menu-bar>
 
     <!-- Add your site or application content here -->
-    <div class="container" ui-view="main">
-
+    <div id="content" layout="row" flex>
+        <md-content ui-view="main" flex></md-content>
     </div>
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -56,6 +57,10 @@
     <!-- Config -->
     <script src="scripts/config/urlProvider.js"></script>
 
+    <!-- Services -->
+    <script src="scripts/services/creditCard.js"></script>
+
+
     <!-- Controllers -->
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
@@ -64,6 +69,7 @@
 
     <!-- Directives -->
     <script src="scripts/directives/menuBar.js"></script>
+    <script src="scripts/services/creditcard.js"></script>
     <!-- endbuild -->
 </body>
 </html>
