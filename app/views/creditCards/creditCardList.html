@@ -1,15 +1,11 @@
 <div layout="column" flex>
-    <div id="menuOptionsList" layout="column" flex>
-        <md-button ui-sref="creditCardsList.add" class="md-fab md-primary md-hue-3" aria-label="Add">
-            <md-icon md-svg-icon="images/icons/add.svg"></md-icon>
-        </md-button>
-    </div>
+    <list-buttons buttons="buttons"></list-buttons>
     <md-table-container class="mainTable">
-        <table md-table md-row-select ng-model="selected" md-progress="promise" class="mainTable">
-            <thead md-head md-order="query.order" md-on-reorder="onReorder">
+        <table md-table md-row-select ng-model="selected" class="mainTable">
+            <thead md-head md-order="query.order">
                 <tr md-row>
-                    <th md-column md-order-by="nameToLower"><span>Bank</span></th>
-                    <th md-column md-numeric md-order-by="cards.flag"><span>Flag</span></th>
+                    <th md-column md-order-by="cards.bank" ng-click="onReorder('bank')"><span>Bank</span></th>
+                    <th md-column md-numeric md-order-by="cards.flag" ng-click="onReorder('flag')"><span>Flag</span></th>
                     <th md-column md-numeric>Payment in</th>
                     <th md-column md-numeric>Closing in</th>
                     <th md-column md-numeric>Credit Card Number</th>
@@ -17,7 +13,7 @@
                 </tr>
             </thead>
             <tbody md-body>
-                <tr md-row md-select="card" md-select-id="{{card.name}}" md-auto-select ng-repeat="card in cards" ng-dblclick="edit(card)">
+                <tr md-row md-select="card" md-select-id="{{card.name}}" md-auto-select ng-repeat="card in cardsToList | orderBy: query.order" ng-dblclick="edit(card)">
                     <td md-cell>{{card.bank}}</td>
                     <td md-cell>{{card.flag}}</td>
                     <td md-cell>{{card.payDay | number: 0}}</td>
@@ -37,5 +33,5 @@
         </table>
     </md-table-container>
 
-    <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{cards.length}}" md-on-paginate="onPaginate" md-page-select></md-table-pagination>
+    <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{cards.length}}" md-on-paginate="listCreditCards" md-page-select></md-table-pagination>
 </div>

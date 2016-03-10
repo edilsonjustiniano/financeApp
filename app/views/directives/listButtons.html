@@ -1,0 +1,5 @@
+<div id="menuOptionsList" layout="column" flex>
+    <md-button ng-repeat="button in buttons" ui-sref="{{button.state}}" class="{{button.class}}" aria-label="{{button.label}}">
+        <md-icon md-svg-icon="{{button.icon}}"></md-icon>
+    </md-button>
+</div>

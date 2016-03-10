@@ -17,6 +17,18 @@ module.exports = function(app) {
             }
         );
     };
+    
+    controller.findAllPageable = function(req, res) {
+        CreditCard.find().sort({"bank": 1}).limit(5).skip(0).exec().then(
+            function(contatos) {
+                res.json(contatos);
+            },
+            function(error) {
+                console.log(error);
+                res.status(500).json(error);
+            }
+        );
+    };
 
     controller.save = function(req, res) {
         CreditCard.create(req.body).then(
