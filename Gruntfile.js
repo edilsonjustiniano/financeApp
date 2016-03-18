@@ -382,6 +382,9 @@ module.exports = function (grunt) {
 
     // Test settings
     karma: {
+      options: {
+        files: ['test/**/**/*.js']
+      }
       unit: {
         configFile: 'test/karma.conf.js',
         singleRun: true
@@ -416,6 +419,7 @@ module.exports = function (grunt) {
     'concurrent:test',
     'autoprefixer',
     'connect:test',
+    'grunt-karma'
     'karma'
   ]);
 

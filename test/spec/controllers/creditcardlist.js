@@ -1,22 +1,62 @@
 'use strict';
 
-describe('Controller: CreditcardlistctrlCtrl', function () {
+describe('Controller: CreditcardListCtrl', function () {
 
-  // load the controller's module
-  beforeEach(module('financeApp'));
+    var CreditcardListCtrl,
+    CreditCardModel,
+    scope,
+    state,
+    mdToast;
 
-  var CreditcardlistctrlCtrl,
-    scope;
+    // load the controller's module
+    beforeEach(module('financeApp'));
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    CreditcardlistctrlCtrl = $controller('CreditcardlistctrlCtrl', {
-      $scope: scope
+
+
+    beforeEach(function () {
+        CreditCardModel = {
+            query: jasmine.any(Function)
+        };
+
+        module(function ($provide) {
+            $provide.value('CreditCardModel', CreditCardModel);
+        });
     });
-  }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
+    // Initialize the controller and a mock scope
+    beforeEach(inject(function ($controller, $rootScope, $state, $mdToast) {
+        scope = $rootScope.$new();
+        state = $state;
+        mdToast = $mdToast;
+        CreditcardListCtrl = $controller('CreditcardListCtrl', {
+            $scope: scope
+        });
+    }));
+
+    describe('Controller Initialization', function() {
+        it('should initialize the variables and call listCreditCards', function() {
+            // given
+            scope.buttons = [{
+                state: 'creditCardsList.add',
+                class: 'md-fab md-primary md-hue-3',
+                label: 'Add Card',
+                icon: 'images/icons/add.svg'
+            }];
+
+            // and
+            scope.query = {
+                order: 'bank',
+                limit: 5,
+                page: 1
+            };
+
+            // and
+            spyOn(scope, 'listCreditCards');
+
+            // when
+
+            // then
+            expect(scope.listCreditCards).toHaveBeenCalled();
+        });
+    });
 });
